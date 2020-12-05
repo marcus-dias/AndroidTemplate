@@ -1,0 +1,7 @@
+include ':api'
+include ':database'
+include ':repositories'
+include ':use_cases'
+include ':base_ui'
+include ':app'
+rootProject.name = "Template"
