@@ -1,0 +1,3 @@
+package com.repositories_interfaces
+
+interface Repository
