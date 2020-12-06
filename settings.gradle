@@ -1,3 +1,5 @@
+include ':ui_model'
+include ':view_models'
 include ':domain_model'
 include ':database_datasources'
 include ':api_datasources'

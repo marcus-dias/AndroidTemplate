@@ -2,19 +2,18 @@ package com.template.ui.main
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
-import com.base_ui.model.Loading
+import com.template.BaseFragment
 import com.template.R
+import com.view_models.country.ListCountriesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
-fun createMainFragment() = MainFragment()
+fun createMainFragment() = ListCountriesFragment()
 
 @AndroidEntryPoint
-class MainFragment : Fragment(R.layout.main_fragment) {
-    private val viewModel by viewModels<MainViewModel>()
+class ListCountriesFragment : BaseFragment<ListCountriesViewModel>(R.layout.main_fragment) {
+    override val viewModel by viewModels<ListCountriesViewModel>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupCountriesObserver()
@@ -23,9 +22,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
 
     private fun setupCountriesObserver() {
         viewModel.liveData.observe(viewLifecycleOwner) {
-            if (it is Loading) {
-                Toast.makeText(context, "loading", Toast.LENGTH_SHORT).show()
-            }
+            //display list of countries
         }
     }
 }
