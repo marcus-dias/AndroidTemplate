@@ -1,13 +1,13 @@
-include ':ui_model'
-include ':view_models'
-include ':domain_model'
-include ':database_datasources'
-include ':api_datasources'
-include ':repositories_interfaces'
-include ':api'
-include ':database'
-include ':repositories'
-include ':use_cases'
-include ':base_ui'
-include ':app'
 rootProject.name = "Template"
+include ':ui_model',
+        ':view_models',
+        ':domain_model',
+        ':database_datasources',
+        ':api_datasources',
+        ':repositories_interfaces',
+        ':api',
+        ':database',
+        ':repositories',
+        ':use_cases',
+        ':base_ui',
+        ':app'

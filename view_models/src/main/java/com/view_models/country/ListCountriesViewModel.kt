@@ -11,12 +11,12 @@ import com.view_models.extensions.executeUseCase
 class ListCountriesViewModel @ViewModelInject constructor(
     private val getCountriesUseCase: GetCountriesUseCase,
 ) : com.view_models.base.BaseViewModel() {
-    private var _liveData = MutableLiveData<List<UiCountry>>()
-    val liveData: LiveData<List<UiCountry>> = _liveData
+    private var _countryListLiveData = MutableLiveData<List<UiCountry>>()
+    val countryListLiveData: LiveData<List<UiCountry>> = _countryListLiveData
     fun loadAllCountries() {
         showLoading()
         executeUseCase(getCountriesUseCase::invoke) {
-            _liveData.postValue(it.toUi())
+            _countryListLiveData.postValue(it.toUi())
         }
     }
 }

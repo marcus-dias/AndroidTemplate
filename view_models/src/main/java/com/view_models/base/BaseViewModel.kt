@@ -9,8 +9,8 @@ abstract class BaseViewModel : ViewModel() {
     private val _showErrorState = MutableLiveData<Boolean>()
     val loadingState: LiveData<Boolean> = _loadingState
     val errorState: LiveData<Boolean> = _showErrorState
-    protected fun showLoading() = _loadingState.postValue(true)
-    protected fun hideLoading() = _loadingState.postValue(false)
-    protected fun showError() = _showErrorState.postValue(true)
-    protected fun hideError() = _showErrorState.postValue(false)
+    internal fun showLoading() = _loadingState.postValue(true)
+    internal fun hideLoading() = _loadingState.postValue(false)
+    internal fun showError() = _showErrorState.postValue(true)
+    internal fun hideError() = _showErrorState.postValue(false)
 }

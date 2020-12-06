@@ -1,4 +1,4 @@
-package com.use_cases
+package com.domain_model
 
 sealed class DomainResult<out T> {
     data class Success<out T>(val data: T) : DomainResult<T>()

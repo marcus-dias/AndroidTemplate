@@ -2,6 +2,7 @@ package com.template.ui.main
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import com.template.BaseFragment
@@ -21,8 +22,8 @@ class ListCountriesFragment : BaseFragment<ListCountriesViewModel>(R.layout.main
     }
 
     private fun setupCountriesObserver() {
-        viewModel.liveData.observe(viewLifecycleOwner) {
-            //display list of countries
+        viewModel.countryListLiveData.observe(viewLifecycleOwner) {
+            Toast.makeText(context, "size = " + it.size, Toast.LENGTH_SHORT).show()
         }
     }
 }
