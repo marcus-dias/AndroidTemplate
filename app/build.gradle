@@ -35,7 +35,14 @@ android {
 }
 
 dependencies {
+    implementation project(':api')
+    implementation project(':api_datasources')
     implementation project(':base_ui')
+    implementation project(':database')
+    implementation project(':database_datasources')
+    implementation project(':domain_model')
+    implementation project(':repositories')
+    implementation project(':repositories_interfaces')
     implementation project(':use_cases')
 
     // HILT

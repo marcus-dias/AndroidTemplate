@@ -1,5 +1,5 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'dagger.hilt.android.plugin'
     id 'kotlin-android'
     id 'kotlin-kapt'
@@ -46,10 +46,10 @@ dependencies {
     kapt "androidx.hilt:hilt-compiler:1.0.0-alpha02"
 
     // NETWORKING
-    implementation "com.squareup.retrofit2:retrofit:2.9.0"
-    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
-    implementation "com.squareup.okhttp3:okhttp:4.9.0"
-    implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
-    implementation "com.google.code.gson:gson:2.8.6"
+    api "com.squareup.retrofit2:retrofit:2.9.0"
+    api "com.squareup.retrofit2:converter-gson:2.9.0"
+    api "com.squareup.okhttp3:okhttp:4.9.0"
+    api "com.squareup.okhttp3:logging-interceptor:4.9.0"
+    api "com.google.code.gson:gson:2.8.6"
 
 }
