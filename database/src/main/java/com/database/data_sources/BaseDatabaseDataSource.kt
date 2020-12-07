@@ -1,0 +1,3 @@
+package com.database.data_sources
+
+abstract class BaseDatabaseDataSource

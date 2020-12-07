@@ -8,12 +8,13 @@ import kotlinx.coroutines.launch
 fun <T> BaseViewModel.isSuccess(result: DomainResult<T>, onSuccess: ((T) -> Unit)) {
     when (result) {
         is DomainResult.Success -> showSuccess(onSuccess, result)
-        is DomainResult.UnknownError -> showError()
-        is DomainResult.ConnectionError -> showError()
+        is DomainResult.UnknownError -> showFailure()
+        is DomainResult.NetworkError -> showFailure()
+        is DomainResult.DatabaseError -> showFailure()
     }
 }
 
-private fun BaseViewModel.showError() {
+private fun BaseViewModel.showFailure() {
     hideLoading()
     showError()
 }

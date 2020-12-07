@@ -36,6 +36,8 @@ android {
 
 dependencies {
     implementation project(':repositories_interfaces')
+    implementation project(':api_datasources')
+    implementation project(':database_datasources')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 

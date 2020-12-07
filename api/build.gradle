@@ -35,6 +35,7 @@ android {
 }
 
 dependencies {
+    implementation project(':api_datasources')
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
     // HILT

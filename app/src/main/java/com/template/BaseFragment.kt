@@ -5,7 +5,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
-import com.view_models.base.BaseViewModel
+import androidx.lifecycle.observe
 
 abstract class BaseFragment<VM : com.view_models.base.BaseViewModel>(@LayoutRes layoutResId: Int) :
     Fragment(layoutResId) {
@@ -23,8 +23,9 @@ abstract class BaseFragment<VM : com.view_models.base.BaseViewModel>(@LayoutRes 
     private fun setupLoadingObserver() {
         viewModel.loadingState.observe(viewLifecycleOwner) { showLoading ->
             if (showLoading) {
-                Toast.makeText(context, "loading loadingState", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "show loadingState", Toast.LENGTH_SHORT).show()
             } else {
+                Toast.makeText(context, "hide loadingState", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -32,7 +33,9 @@ abstract class BaseFragment<VM : com.view_models.base.BaseViewModel>(@LayoutRes 
     private fun setupErrorObserver() {
         viewModel.errorState.observe(viewLifecycleOwner) { showError ->
             if (showError) {
+                Toast.makeText(context, "show Error", Toast.LENGTH_SHORT).show()
             } else {
+                Toast.makeText(context, "hide Error", Toast.LENGTH_SHORT).show()
             }
         }
     }

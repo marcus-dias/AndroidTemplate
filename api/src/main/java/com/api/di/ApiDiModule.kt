@@ -23,7 +23,7 @@ class ApiDiModule {
     @Singleton
     fun provideRetrofit(httpClient: OkHttpClient): Retrofit =
         Retrofit.Builder()
-            .baseUrl("")
+            .baseUrl("https://restcountries.eu/rest/")
             .client(httpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
