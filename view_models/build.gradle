@@ -5,33 +5,29 @@ plugins {
     id 'kotlin-kapt'
 }
 
-android {
-    compileSdkVersion 30
-}
-
 dependencies {
-    implementation libraries.app.kotlinStd
-    implementation libraries.app.kotlinCore
-    implementation project(':ui_model')
-    implementation project(':use_cases')
+    implementation libraries.kotlinStd
+    implementation libraries.kotlinCore
+    implementation project(moduleList.ui_model)
+    implementation project(moduleList.use_cases)
 
     // COROUTINES
-    implementation libraries.app.kotlinCoroutines
+    implementation libraries.kotlinCoroutines
 
     // LIFECYCLE
-    api libraries.app.lifecycleLivedataCore
-    api libraries.app.lifecycleCommon
-    api libraries.app.lifecycleLivedata
-    api libraries.app.lifecycleRuntime
-    api libraries.app.lifecycleViewmodel
-    api libraries.app.lifecycleViewmodelSavedstate
-    api libraries.app.lifecycleExtensions
+    api libraries.lifecycleLivedataCore
+    api libraries.lifecycleCommon
+    api libraries.lifecycleLivedata
+    api libraries.lifecycleRuntime
+    api libraries.lifecycleViewmodel
+    api libraries.lifecycleViewmodelSavedstate
+    api libraries.lifecycleExtensions
 
     // HILT
-    implementation libraries.app.hiltAndroid
-    kapt libraries.app.hiltAndroidCompiler
-    implementation libraries.app.hiltAndroidXViewModel
-    kapt libraries.app.hiltAndroidXCompiler
+    implementation libraries.hiltAndroid
+    kapt libraries.hiltAndroidCompiler
+    implementation libraries.hiltAndroidXViewModel
+    kapt libraries.hiltAndroidXCompiler
 
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

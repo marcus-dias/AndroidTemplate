@@ -4,40 +4,34 @@ plugins {
     id 'kotlin-kapt'
 }
 
-android {
-    compileSdkVersion 30
-}
-
 dependencies {
-    implementation libraries.app.kotlinStd
-    api project(':use_cases')
-    api project(':ui_model')
+    api project(moduleList.use_cases)
+    api project(moduleList.ui_model)
 
-    api 'com.google.android.material:material:1.2.1'
-    api 'androidx.constraintlayout:constraintlayout:2.0.4'
-
-    api libraries.app.startupRuntime
+    implementation libraries.kotlinStd
+    api libraries.materialDesign
+    api libraries.constraintLayout
 
     // LIFECYCLE
-    api libraries.app.lifecycleLivedataCore
-    api libraries.app.lifecycleCommon
-    api libraries.app.lifecycleLivedata
-    api libraries.app.lifecycleRuntime
-    api libraries.app.lifecycleViewmodel
-    api libraries.app.lifecycleViewmodelSavedstate
-    api libraries.app.lifecycleExtensions
+    api libraries.lifecycleLivedataCore
+    api libraries.lifecycleCommon
+    api libraries.lifecycleLivedata
+    api libraries.lifecycleRuntime
+    api libraries.lifecycleViewmodel
+    api libraries.lifecycleViewmodelSavedstate
+    api libraries.lifecycleExtensions
 
     // KTX
-    api libraries.app.kotlinCore
-    api libraries.app.kotlinFragments
-    api libraries.app.appcompat
-    api libraries.app.kotlinCollection
+    api libraries.kotlinCore
+    api libraries.kotlinFragments
+    api libraries.appcompat
+    api libraries.kotlinCollection
 
     // HILT
-    implementation libraries.app.hiltAndroid
-    kapt libraries.app.hiltAndroidCompiler
-    implementation libraries.app.hiltAndroidXViewModel
-    kapt libraries.app.hiltAndroidXCompiler
+    implementation libraries.hiltAndroid
+    kapt libraries.hiltAndroidCompiler
+    implementation libraries.hiltAndroidXViewModel
+    kapt libraries.hiltAndroidXCompiler
 
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

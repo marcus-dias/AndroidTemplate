@@ -1,5 +1,6 @@
 ext {
-    kotlinVersion = '1.3.50'
+    // libraries versions
+    kotlinVersion = '1.4.10'
     lifecycleVersion = '2.2.0'
     hiltVersion = '2.28-alpha'
     hiltAndroidXVersion = '1.0.0-alpha02'
@@ -13,19 +14,8 @@ ext {
     okhttpVersion = '4.9.0'
     googleGsonVersion = '2.8.6'
     kotlinCoroutinesVersion = '1.4.0'
-
-//    buildScript = [
-//            firebaseCrashlytics    : 'com.google.firebase:firebase-crashlytics-gradle:2.3.0',
-//            kotlin                 : "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}",
-//            android                : 'com.android.tools.build:gradle:3.5.0',
-//            googleServices         : 'com.google.gms:google-services:4.3.3',
-//            firebaseAppDistribution: 'com.google.firebase:firebase-appdistribution-gradle:1.3.1',
-//            gradleProperties       : 'com.novoda:gradle-build-properties-plugin:0.4.1',
-//            playPublisher          : 'com.github.triplet.gradle:play-publisher:2.6.0',
-//            detekt                 : "gradle.plugin.io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${detektVersion}",
-//            firebasePerformance    : 'com.google.firebase:perf-plugin:1.3.1',
-//            huaweiAppGalleryConnect: "com.huawei.agconnect:agcp:${huaweiAppGalleryConnect}"
-//    ]
+    materialDesignVersion = '1.2.1'
+    contraintLayoutVersion = '2.0.4'
 
     moduleList = [
             api                    : ":api",
@@ -42,72 +32,48 @@ ext {
     ]
 
     libraries = [
-            app: [
-                    kotlinStd                   : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
-                    // APP STARTUP
-                    startupRuntime              : "androidx.startup:startup-runtime:$startupRuntimeVersion",
+            kotlinStd                   : "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion",
+            // APP STARTUP
+            startupRuntime              : "androidx.startup:startup-runtime:$startupRuntimeVersion",
 
-                    // LIFECYCLE
-                    lifecycleLivedataCore       : "androidx.lifecycle:lifecycle-livedata-core-ktx:${lifecycleVersion}",
-                    lifecycleCommon             : "androidx.lifecycle:lifecycle-common-java8:${lifecycleVersion}",
-                    lifecycleLivedata           : "androidx.lifecycle:lifecycle-livedata-ktx:${lifecycleVersion}",
-                    lifecycleRuntime            : "androidx.lifecycle:lifecycle-runtime-ktx:${lifecycleVersion}",
-                    lifecycleViewmodel          : "androidx.lifecycle:lifecycle-viewmodel-ktx:${lifecycleVersion}",
-                    lifecycleViewmodelSavedstate: "androidx.lifecycle:lifecycle-viewmodel-savedstate:${lifecycleVersion}",
-                    lifecycleExtensions         : "androidx.lifecycle:lifecycle-extensions:${lifecycleVersion}",
+            // LIFECYCLE
+            lifecycleLivedataCore       : "androidx.lifecycle:lifecycle-livedata-core-ktx:${lifecycleVersion}",
+            lifecycleCommon             : "androidx.lifecycle:lifecycle-common-java8:${lifecycleVersion}",
+            lifecycleLivedata           : "androidx.lifecycle:lifecycle-livedata-ktx:${lifecycleVersion}",
+            lifecycleRuntime            : "androidx.lifecycle:lifecycle-runtime-ktx:${lifecycleVersion}",
+            lifecycleViewmodel          : "androidx.lifecycle:lifecycle-viewmodel-ktx:${lifecycleVersion}",
+            lifecycleViewmodelSavedstate: "androidx.lifecycle:lifecycle-viewmodel-savedstate:${lifecycleVersion}",
+            lifecycleExtensions         : "androidx.lifecycle:lifecycle-extensions:${lifecycleVersion}",
 
-                    // KTX
-                    kotlinCore                  : "androidx.core:core-ktx:$kotlinCoreVersion",
-                    kotlinFragments             : "androidx.fragment:fragment-ktx:$kotlinFragmentsVersion",
-                    appcompat                   : "androidx.appcompat:appcompat:$appcompatVersion",
-                    kotlinCollection            : "androidx.collection:collection-ktx:$kotlinCollectionVersion",
-                    kotlinCoroutines            : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinCoroutinesVersion",
+            // KTX
+            kotlinCore                  : "androidx.core:core-ktx:$kotlinCoreVersion",
+            kotlinFragments             : "androidx.fragment:fragment-ktx:$kotlinFragmentsVersion",
+            appcompat                   : "androidx.appcompat:appcompat:$appcompatVersion",
+            kotlinCollection            : "androidx.collection:collection-ktx:$kotlinCollectionVersion",
+            kotlinCoroutines            : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinCoroutinesVersion",
 
-                    // HILT
-                    hiltAndroid                 : "com.google.dagger:hilt-android:$hiltVersion",
-                    hiltAndroidCompiler         : "com.google.dagger:hilt-android-compiler:$hiltVersion",
+            // HILT
+            hiltAndroid                 : "com.google.dagger:hilt-android:$hiltVersion",
+            hiltAndroidCompiler         : "com.google.dagger:hilt-android-compiler:$hiltVersion",
 
-                    // HILT - ANDROIDX
-                    hiltAndroidXViewModel       : "androidx.hilt:hilt-lifecycle-viewmodel:$hiltAndroidXVersion",
-                    hiltAndroidXCompiler        : "androidx.hilt:hilt-compiler:$hiltAndroidXVersion",
+            // HILT - ANDROIDX
+            hiltAndroidXViewModel       : "androidx.hilt:hilt-lifecycle-viewmodel:$hiltAndroidXVersion",
+            hiltAndroidXCompiler        : "androidx.hilt:hilt-compiler:$hiltAndroidXVersion",
 
-                    // ROOM
-                    roomKotlin                  : "androidx.room:room-ktx:$roomVersion",
-                    roomKotlinRuntime           : "androidx.room:room-runtime:$roomVersion",
-                    roomKotlinCompiler          : "androidx.room:room-compiler:$roomVersion",
+            // ROOM
+            roomKotlin                  : "androidx.room:room-ktx:$roomVersion",
+            roomKotlinRuntime           : "androidx.room:room-runtime:$roomVersion",
+            roomKotlinCompiler          : "androidx.room:room-compiler:$roomVersion",
 
-                    // NETWORKING
-                    retrofit                    : "com.squareup.retrofit2:retrofit:$retrofitVersion",
-                    retrofitConverterGson       : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
-                    okhttp                      : "com.squareup.okhttp3:okhttp:$okhttpVersion",
-                    okhttpLogginInterceptor     : "com.squareup.okhttp3:logging-interceptor:$okhttpVersion",
-                    googleGson                  : "com.google.code.gson:gson:$googleGsonVersion",
-            ],
+            // NETWORKING
+            retrofit                    : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retrofitConverterGson       : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+            okhttp                      : "com.squareup.okhttp3:okhttp:$okhttpVersion",
+            okhttpLogginInterceptor     : "com.squareup.okhttp3:logging-interceptor:$okhttpVersion",
+            googleGson                  : "com.google.code.gson:gson:$googleGsonVersion",
 
-//            test  : [
-//                    archTest     : "androidx.arch.core:core-testing:${architectureComponents}",
-//                    hamcrest     : 'org.hamcrest:hamcrest-all:1.3',
-//                    junit4       : 'junit:junit:4.12',
-//                    mockito      : 'org.mockito:mockito-core:2.10.0',
-//                    mockitoKotlin: 'com.nhaarman:mockito-kotlin-kt1.1:1.5.0',
-//                    roomTesting  : "androidx.room:room-testing:${architectureComponents}",
-//                    retrofitMock : "com.squareup.retrofit2:retrofit-mock:${retrofitVersion}",
-//                    truth        : "com.google.truth:truth:0.42"
-//            ],
-//
-//            uiTest: [
-//                    androidxJunit  : "androidx.test.ext:junit:1.1.1",
-//                    dexmakerMockito: "com.linkedin.dexmaker:dexmaker-mockito:2.19.1",
-//                    espressoContrib: "androidx.test.espresso:espresso-contrib:${espressoVersion}",
-//                    espressoCore   : "androidx.test.espresso:espresso-core:${espressoVersion}",
-//                    espressoIntents: "androidx.test.espresso:espresso-intents:${espressoVersion}",
-//                    espressoWeb    : "androidx.test.espresso:espresso-web:${espressoVersion}",
-//                    mockito        : 'org.mockito:mockito-core:1.9.5',
-//                    retrofitMock   : "com.squareup.retrofit2:retrofit-mock:${retrofitVersion}",
-//                    rxIdler        : 'com.squareup.rx.idler:rx2-idler:0.9.1',
-//                    testRuler      : 'androidx.test:rules:1.2.0',
-//                    testRunner     : 'androidx.test:runner:1.2.0',
-//                    uiAutomator    : 'androidx.test.uiautomator:uiautomator:2.2.0'
-//            ]
+            // App Design
+            materialDesign              : "com.google.android.material:material:$materialDesignVersion",
+            constraintLayout            : "androidx.constraintlayout:constraintlayout:$contraintLayoutVersion"
     ]
 }

@@ -1,25 +1,47 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    ext.kotlin_version = "1.4.10"
+    apply from: 'dependencies.gradle'
+
     repositories {
         google()
         jcenter()
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.1.1"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
         classpath "com.google.dagger:hilt-android-gradle-plugin:2.28-alpha"
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
     }
-    apply from: 'dependencies.gradle'
 }
 
 allprojects {
     repositories {
         google()
         jcenter()
+    }
+}
+
+subprojects {
+    afterEvaluate { project ->
+        if (project.hasProperty('android')) {
+            android {
+                compileOptions {
+                    sourceCompatibility JavaVersion.VERSION_1_8
+                    targetCompatibility JavaVersion.VERSION_1_8
+                }
+                compileSdkVersion 30
+                buildToolsVersion "30.0.2"
+
+                defaultConfig {
+                    minSdkVersion 21
+                    targetSdkVersion 30
+                    versionCode 1
+                    versionName "1.0"
+                }
+                kotlinOptions {
+                    jvmTarget = JavaVersion.VERSION_1_8.toString()
+                }
+            }
+        }
     }
 }
 

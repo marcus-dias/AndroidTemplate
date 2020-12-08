@@ -3,14 +3,10 @@ plugins {
     id 'kotlin-android'
 }
 
-android {
-    compileSdkVersion 30
-}
-
 dependencies {
-    implementation project(':domain_model')
-    implementation libraries.app.kotlinStd
-    implementation libraries.app.kotlinCore
+    implementation project(moduleList.domain_model)
+    implementation libraries.kotlinStd
+    implementation libraries.kotlinCore
 
 
     testImplementation 'junit:junit:4.+'

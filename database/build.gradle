@@ -6,21 +6,17 @@ plugins {
     id 'kotlin-android-extensions'
 }
 
-android {
-    compileSdkVersion 30
-}
-
 dependencies {
-    implementation project(':database_datasources')
-    implementation libraries.app.kotlinStd
+    implementation project(moduleList.database_datasources)
+    implementation libraries.kotlinStd
 
     // HILT
-    implementation libraries.app.hiltAndroid
-    kapt libraries.app.hiltAndroidCompiler
-    implementation libraries.app.hiltAndroidXViewModel
-    kapt libraries.app.hiltAndroidXCompiler
+    implementation libraries.hiltAndroid
+    kapt libraries.hiltAndroidCompiler
+    implementation libraries.hiltAndroidXViewModel
+    kapt libraries.hiltAndroidXCompiler
     // ROOM
-    api libraries.app.roomKotlin
-    implementation libraries.app.roomKotlinRuntime
-    kapt libraries.app.roomKotlinCompiler
+    api libraries.roomKotlin
+    implementation libraries.roomKotlinRuntime
+    kapt libraries.roomKotlinCompiler
 }

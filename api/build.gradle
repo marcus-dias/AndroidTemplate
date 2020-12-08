@@ -5,25 +5,21 @@ plugins {
     id 'kotlin-kapt'
 }
 
-android {
-    compileSdkVersion 30
-}
-
 dependencies {
     implementation project(moduleList.api_datasources)
-    implementation libraries.app.kotlinStd
+    implementation libraries.kotlinStd
 
     // HILT
-    implementation libraries.app.hiltAndroid
-    kapt libraries.app.hiltAndroidCompiler
-    implementation libraries.app.hiltAndroidXViewModel
-    kapt libraries.app.hiltAndroidXCompiler
+    implementation libraries.hiltAndroid
+    kapt libraries.hiltAndroidCompiler
+    implementation libraries.hiltAndroidXViewModel
+    kapt libraries.hiltAndroidXCompiler
 
     // NETWORKING
-    api libraries.app.retrofit
-    api libraries.app.retrofitConverterGson
-    api libraries.app.okhttp
-    api libraries.app.okhttpLogginInterceptor
-    api libraries.app.googleGson
+    api libraries.retrofit
+    api libraries.retrofitConverterGson
+    api libraries.okhttp
+    api libraries.okhttpLogginInterceptor
+    api libraries.googleGson
 
 }

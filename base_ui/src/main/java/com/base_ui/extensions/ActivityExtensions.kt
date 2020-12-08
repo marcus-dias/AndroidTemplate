@@ -1,29 +1,29 @@
 package com.base_ui.extensions
 
 import androidx.annotation.IdRes
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 
-fun AppCompatActivity.openFragment(
+fun FragmentActivity.openFragment(
     @IdRes container: Int,
     fragment: Fragment,
     addToBackStack: Boolean = false
 ) {
-    if (addToBackStack) {
-        addFragment(container, fragment)
-    } else {
-        replaceFragment(container, fragment)
+    when (addToBackStack) {
+        true -> addFragment(container, fragment)
+        false -> replaceFragment(container, fragment)
     }
 }
 
-private fun AppCompatActivity.replaceFragment(@IdRes container: Int, fragment: Fragment) {
+private fun FragmentActivity.replaceFragment(@IdRes container: Int, fragment: Fragment) {
     supportFragmentManager.beginTransaction()
         .replace(container, fragment)
         .commitNow()
 }
 
-private fun AppCompatActivity.addFragment(@IdRes container: Int, fragment: Fragment) {
+private fun FragmentActivity.addFragment(@IdRes container: Int, fragment: Fragment) {
     supportFragmentManager.beginTransaction()
         .add(container, fragment)
-        .commitNow()
+        .addToBackStack(fragment.javaClass.simpleName)
+        .commit()
 }

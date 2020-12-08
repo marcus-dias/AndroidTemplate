@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.observe
+import com.base_ui.extensions.baseFragmentInitialization
 import com.base_ui.extensions.toggleVisibility
 import com.template.R
 import com.ui_model.errors.UiErrorState
@@ -24,19 +25,12 @@ abstract class BaseFragment<VM : BaseViewModel>(@LayoutRes private val layoutRes
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val baseView =
-            inflater.inflate(
-                R.layout.base_fragment_layout,
-                container,
-                false
-            ) as ViewGroup
-        val content = inflater.inflate(
-            layoutResId,
-            baseView,
-            false
+        return baseFragmentInitialization(
+            inflater,
+            container,
+            R.layout.base_fragment_layout,
+            layoutResId
         )
-        baseView.addView(content, 0)
-        return baseView
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

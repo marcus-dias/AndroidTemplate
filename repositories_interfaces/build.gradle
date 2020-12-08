@@ -5,16 +5,12 @@ plugins {
     id 'kotlin-kapt'
 }
 
-android {
-    compileSdkVersion 30
-}
-
 dependencies {
-    api project(':domain_model')
-    implementation libraries.app.kotlinStd
+    api project(moduleList.domain_model)
+    implementation libraries.kotlinStd
     // HILT
-    implementation libraries.app.hiltAndroid
-    kapt libraries.app.hiltAndroidCompiler
-    implementation libraries.app.hiltAndroidXViewModel
-    kapt libraries.app.hiltAndroidXCompiler
+    implementation libraries.hiltAndroid
+    kapt libraries.hiltAndroidCompiler
+    implementation libraries.hiltAndroidXViewModel
+    kapt libraries.hiltAndroidXCompiler
 }

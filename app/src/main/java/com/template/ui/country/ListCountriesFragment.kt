@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.base_ui.extensions.openFragment
 import com.template.R
 import com.template.ui.base.BaseFragment
 import com.ui_model.country.UiCountry
@@ -15,7 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.item_countries_layout.view.*
 import kotlinx.android.synthetic.main.list_countries_fragment_layout.*
 
-fun createMainFragment() = ListCountriesFragment()
+fun createListCountriesFragment() = ListCountriesFragment()
 
 @AndroidEntryPoint
 class ListCountriesFragment :
@@ -33,8 +34,7 @@ class ListCountriesFragment :
             adapter.addItems(it)
         }
     }
-
-    class ListCountriesAdapter :
+    inner class ListCountriesAdapter :
         RecyclerView.Adapter<ListCountriesAdapter.ListCountriesViewHolder>() {
         private val items = mutableListOf<UiCountry>()
         override fun onCreateViewHolder(
@@ -64,11 +64,15 @@ class ListCountriesFragment :
             items.addAll(countries)
             notifyDataSetChanged()
         }
-
-        class ListCountriesViewHolder(itemView: View) :
+        inner class ListCountriesViewHolder(itemView: View) :
             RecyclerView.ViewHolder(itemView) {
             fun bind(uiCountry: UiCountry) = with(itemView) {
                 itemCountriesName.text = uiCountry.name
+                setOnClickListener {
+                    this@ListCountriesFragment.requireActivity().openFragment(
+                        R.id.container, createListCountriesFragment(), true
+                    )
+                }
             }
         }
     }
