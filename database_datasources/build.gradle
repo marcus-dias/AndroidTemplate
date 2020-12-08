@@ -10,5 +10,5 @@ java {
 
 dependencies {
     api project(':domain_model')
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation libraries.app.kotlinStd
 }

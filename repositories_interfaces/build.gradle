@@ -7,40 +7,14 @@ plugins {
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "30.0.2"
-
-    defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles "consumer-rules.pro"
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
 }
+
 dependencies {
     api project(':domain_model')
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation libraries.app.kotlinStd
     // HILT
-    implementation "com.google.dagger:hilt-android:2.28-alpha"
-    kapt "com.google.dagger:hilt-android-compiler:2.28-alpha"
-
-    // HILT - ANDROIDX
-    implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02"
-    kapt "androidx.hilt:hilt-compiler:1.0.0-alpha02"
+    implementation libraries.app.hiltAndroid
+    kapt libraries.app.hiltAndroidCompiler
+    implementation libraries.app.hiltAndroidXViewModel
+    kapt libraries.app.hiltAndroidXCompiler
 }

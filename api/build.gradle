@@ -7,50 +7,23 @@ plugins {
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "30.0.2"
-
-    defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles "consumer-rules.pro"
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
 }
 
 dependencies {
-    implementation project(':api_datasources')
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation project(moduleList.api_datasources)
+    implementation libraries.app.kotlinStd
 
     // HILT
-    implementation "com.google.dagger:hilt-android:2.28-alpha"
-    kapt "com.google.dagger:hilt-android-compiler:2.28-alpha"
-
-    // HILT - ANDROIDX
-    implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02"
-    kapt "androidx.hilt:hilt-compiler:1.0.0-alpha02"
+    implementation libraries.app.hiltAndroid
+    kapt libraries.app.hiltAndroidCompiler
+    implementation libraries.app.hiltAndroidXViewModel
+    kapt libraries.app.hiltAndroidXCompiler
 
     // NETWORKING
-    api "com.squareup.retrofit2:retrofit:2.9.0"
-    api "com.squareup.retrofit2:converter-gson:2.9.0"
-    api "com.squareup.okhttp3:okhttp:4.9.0"
-    api "com.squareup.okhttp3:logging-interceptor:4.9.0"
-    api "com.google.code.gson:gson:2.8.6"
+    api libraries.app.retrofit
+    api libraries.app.retrofitConverterGson
+    api libraries.app.okhttp
+    api libraries.app.okhttpLogginInterceptor
+    api libraries.app.googleGson
 
 }
