@@ -3,7 +3,7 @@ package com.template
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.base_ui.extensions.openFragment
-import com.template.ui.main.createMainFragment
+import com.template.ui.country.createMainFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
